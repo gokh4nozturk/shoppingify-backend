@@ -16,11 +16,11 @@ app.use(bodyParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get("/products", allProduct);
-app.get("/product/:id", getProduct);
-app.post("/product", addProduct);
-app.put("/product/:id", updateProduct);
-app.delete("/product/:id", deleteProduct);
+app.get("/api/products", allProduct);
+app.get("/api/product/:id", getProduct);
+app.post("/api/product", addProduct);
+app.put("/api/product/:id", updateProduct);
+app.delete("/api/product/:id", deleteProduct);
 
 app.listen(process.env.PORT, () => {
   console.log(`listening ${process.env.PORT}`);

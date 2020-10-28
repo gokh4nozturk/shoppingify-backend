@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import Product from "./../product";
 
 export const allProduct = (req: Request, res: Response) => {
-  let products = Product.find((err: any, products: any) => {
+  Product.find((err: any, products: any) => {
     if (err) {
       res.send(err);
     } else {

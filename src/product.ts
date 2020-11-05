@@ -6,6 +6,7 @@ export const productSchema = new mongoose.Schema({
   note: { type: String, required: true },
   image: { type: String, required: false },
   createdAt: { type: Date, required: false, default: Date.now },
+  visible: { type: Boolean, required: false, default: true },
 });
 
 const Product = mongoose.model("Product", productSchema);

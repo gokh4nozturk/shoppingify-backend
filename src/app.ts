@@ -2,6 +2,13 @@ require("dotenv").config();
 import bodyParser from "body-parser";
 import express from "express";
 import mongoose from "mongoose";
+import {
+  addHistory,
+  allHistory,
+  deleteHistory,
+  getHistory,
+  updateHistory,
+} from "./controllers/history.controller";
 
 import {
   addProduct,
@@ -22,6 +29,12 @@ app.get("/api/product/:id", getProduct);
 app.post("/api/product", addProduct);
 app.put("/api/product/:id", updateProduct);
 app.delete("/api/product/:id", deleteProduct);
+
+app.get("/api/histories", allHistory);
+app.get("/api/history/:id", getHistory);
+app.post("/api/history", addHistory);
+app.put("/api/history/:id", updateHistory);
+app.delete("/api/history/:id", deleteHistory);
 
 mongoose.connect(
   `mongodb://localhost:27017/shoppingifyDB`,

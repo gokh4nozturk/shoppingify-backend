@@ -29,17 +29,13 @@ export const addProduct = (req: Request, res: Response) => {
 };
 
 export const updateProduct = (req: Request, res: Response) => {
-  Product.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    (err: any, product: any) => {
-      if (err) {
-        res.send(err);
-      } else {
-        res.send("successfully updated the product");
-      }
+  Product.findByIdAndUpdate(req.params.id, req.body, (err: any) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send("successfully updated the product");
     }
-  );
+  });
 };
 
 export const deleteProduct = (req: Request, res: Response) => {

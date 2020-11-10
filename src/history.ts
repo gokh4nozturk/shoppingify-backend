@@ -5,7 +5,7 @@ export const historySchema = new mongoose.Schema({
   listItem: { type: Array, required: true },
   createdAt: { type: Date, required: false, default: Date.now },
   visible: { type: Boolean, required: false, default: true },
-  completed: { type: Boolean, required: false, default: false },
+  completed: { type: Boolean, required: false, default: true },
   pieces: { type: Number, required: true, default: 0 },
 });
 

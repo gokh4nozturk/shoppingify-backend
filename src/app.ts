@@ -18,6 +18,8 @@ import {
   updateProduct,
 } from "./controllers/product.controller";
 
+const PORT = process.env.PORT || 8080;
+
 const app = express();
 
 app.use(bodyParser());
@@ -43,8 +45,8 @@ mongoose.connect(
     useUnifiedTopology: true,
   },
   () => {
-    app.listen(process.env.PORT, () => {
-      console.log(`listening ${process.env.PORT}`);
+    app.listen(PORT, () => {
+      console.log(`listening ${PORT}`);
     });
   }
 );

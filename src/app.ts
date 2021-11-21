@@ -19,6 +19,8 @@ import {
 
 const PORT = process.env.PORT || 8080;
 
+const URI = process.env.DB_CONNECT;
+
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -37,7 +39,7 @@ app.put("/api/history/:id", updateHistory);
 app.delete("/api/history/:id", deleteHistory);
 
 mongoose.connect(
-  `mongodb://mongo:12345@cluster0-shard-00-00.ypwpa.mongodb.net:27017,cluster0-shard-00-01.ypwpa.mongodb.net:27017,cluster0-shard-00-02.ypwpa.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-8kezbb-shard-0&authSource=admin&retryWrites=true&w=majority`,
+  `${URI}`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

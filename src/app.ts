@@ -1,5 +1,4 @@
 require("dotenv").config();
-import bodyParser from "body-parser";
 import express from "express";
 import mongoose from "mongoose";
 import {
@@ -22,9 +21,8 @@ const PORT = process.env.PORT || 8080;
 
 const app = express();
 
-app.use(bodyParser());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.get("/api/products", allProduct);
 app.get("/api/product/:id", getProduct);
@@ -39,7 +37,7 @@ app.put("/api/history/:id", updateHistory);
 app.delete("/api/history/:id", deleteHistory);
 
 mongoose.connect(
-  `mongodb://localhost:27017/shoppingifyDB`,
+  `mongodb://mongo:12345@cluster0-shard-00-00.ypwpa.mongodb.net:27017,cluster0-shard-00-01.ypwpa.mongodb.net:27017,cluster0-shard-00-02.ypwpa.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-8kezbb-shard-0&authSource=admin&retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
